@@ -1,0 +1,54 @@
+body {
+    background-color: aliceblue;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+#navigation_bar {
+    background-color:#4E4E50;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    font-weight: lighter;
+    letter-spacing: 2px;
+    color: azure;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+}
+
+#basic_option {
+    height: 50px;
+    width: 33.3%;
+    display: inline;
+    float: left;
+    line-height: 50px;
+}
+
+#basic_option:hover {
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+#logo {
+    height: 50px;
+    width: 33.3%;
+    display: inline;
+    line-height: 50px;  
+    font-weight: normal; 
+}
+
+#financial_option {
+    height: 50px;
+    width: 33.3%;
+    display: inline;
+    float: right;
+    line-height: 50px;  
+}
+
+#financial_option:hover {
+    cursor: pointer;
+    font-weight: bolder;
+}

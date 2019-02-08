@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="calc.css">
+    <script type="text/javascript" src="main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+
+        <div id="navigation_bar">
+
+            <div id="basic_option"><a href="index.html" style="text-decoration: none; color:azure">Basic</a></div>
+            <div id="logo">-Calc-</div>
+            <div id="financial_option"><a href="Financial/index.html" style="text-decoration: none; color:azure">Financial</a></div>
+
+        </div>
+
+        <div id="calculator_body">
+
+            <div id="calculator_window">0</div>
+
+            <div id="calculator_buttons">
+
+                <div id="high_buttons">
+                    <div id="seven_button">7</div>
+                    <div id="eight_button">8</div>
+                    <div id="nine_button">9</div>
+                    <div id="divide_button">/</div>
+                </div>
+
+                <div id="middle_buttons">
+                    <div id="four_button">4</div>
+                    <div id="five_button">5</div>
+                    <div id="six_button">6</div>
+                    <div id="multiply_button">x</div>
+                </div>
+
+                <div id="low_buttons">
+                    <div id="one_button">1</div>
+                    <div id="two_button">2</div>
+                    <div id="three_button">3</div>
+                    <div id="subtract_button">-</div>
+                </div>
+
+                <div id="zero_buttons">
+                    <div id="zero_button">0</div>
+                    <div id="period_button">.</div>
+                    <div id="equals_button">=</div>
+                    <div id="plus_button">+</div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    
+
+    <script>
+    $(document).ready(function () {
+        
+        let array = [];
+
+        let signArray = [];
+
+        let str1 = "";
+
+        let str2 = "";
+
+        let result;
+        
+        
+        // All the numbers and signs 
+        $("#seven_button").click(function () {
+            $("#calculator_window").html("7").prepend(array);
+            array.push("7");
+        });
+
+        $("#eight_button").click(function () {
+            $("#calculator_window").html("8").prepend(array);
+            array.push("8");
+        });
+
+        $("#nine_button").click(function () {
+            $("#calculator_window").html("9").prepend(array);
+            array.push("9");
+        });
+
+        $("#four_button").click(function () {
+            $("#calculator_window").html("4").prepend(array);
+            array.push("4");
+        });
+
+        $("#five_button").click(function () {
+            $("#calculator_window").html("5").prepend(array);
+            array.push("5");
+        });
+
+        $("#six_button").click(function () {
+            $("#calculator_window").html("6").prepend(array);
+            array.push("6");
+        });
+
+        $("#one_button").click(function () {
+            $("#calculator_window").html("1").prepend(array);
+            array.push("1");
+        });
+
+        $("#two_button").click(function () {
+            $("#calculator_window").html("2").prepend(array);
+            array.push("2");
+        });
+
+        $("#three_button").click(function () {
+            $("#calculator_window").html("3").prepend(array);
+            array.push("3");
+        });
+
+        $("#zero_button").click(function () {
+            $("#calculator_window").html("0").prepend(array);
+            array.push("0");
+        });
+
+        $("#period_button").click(function () {
+            $("#calculator_window").html(".").prepend(array);
+            if(array.includes(".") === false) {
+            array.push(".");
+            }
+        });
+
+
+        // Operators
+        $("#divide_button").click(function () { 
+            $("#calculator_window").html(result);
+            if(signArray.length === 0) {
+                result = parseFloat(array.join(""));
+            }
+            array = [];
+            signArray.push("/")
+        });
+
+        $("#multiply_button").click(function () { 
+            $("#calculator_window").html(result);
+            if(signArray.length === 0) {
+                result = parseFloat(array.join(""));
+            }
+            array = [];
+            signArray.push("x")
+        });
+
+        $("#subtract_button").click(function () { 
+            $("#calculator_window").html(result);
+            if(signArray.length === 0) {
+                result = parseFloat(array.join(""));
+            }
+            array = [];
+            signArray.push("-")
+        });
+
+        $("#plus_button").click(function () { 
+            $("#calculator_window").html(result);
+            if(signArray.length === 0) {
+                result = parseFloat(array.join(""));
+            }
+            array = [];
+            signArray.push("+")
+        });
+        
+
+        $("#equals_button").click(function () { 
+            str2 = array.join("");
+            if(signArray[signArray.length - 1] === "+") {
+                result = result + parseFloat(str2);
+                $("#calculator_window").html(result);
+            }
+            else if(signArray[signArray.length - 1] === "-") {
+                result = result - parseFloat(str2);
+                $("#calculator_window").html(result);
+            }
+            else if(signArray[signArray.length - 1] === "x") { 
+                result = result * parseFloat(str2);
+                $("#calculator_window").html(result);
+            }
+            else if(signArray[signArray.length - 1] === "/") {
+                result = result / parseFloat(str2);
+                $("#calculator_window").html(result);
+            }
+        });
+
+    });
+    </script>
+    
+</body>
+</html>
